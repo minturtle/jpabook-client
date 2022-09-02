@@ -12,8 +12,14 @@ function LoginForm(){
         axios.post("http://localhost:8080/member/login", 
             {   userId,
                 password
-            }).then(res=>console.log(res.headers['set-cookie']))
-            .catch(res=>alert(res.response.data.message));
+            },
+            {
+                withCredentials : true
+            }).then(res=>console.log(res.response.headers))
+            .catch(res=>{
+                alert(res.response.data.message)
+                console.log(res)
+            });
     
     }
 
