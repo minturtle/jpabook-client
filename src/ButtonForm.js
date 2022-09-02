@@ -12,6 +12,9 @@ function ButtonForm(){
                 <Link to="/signup">
                     <button>회원가입</button>
                 </Link>
+                <Link to="/userDetail">
+                    <button>회원 상세정보</button>
+                </Link>
             </div>
     )
 

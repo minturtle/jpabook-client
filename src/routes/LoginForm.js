@@ -6,22 +6,6 @@ function LoginForm(){
     const [userId , setUserId] = useState("");
     const [password, setPassword] = useState("");
 
-    function SendLoginData(e){
-        e.preventDefault();
-    
-        axios.post("http://localhost:8080/member/login", 
-            {   userId,
-                password
-            },
-            {
-                withCredentials : true
-            }).then(res=>console.log(res.response.headers))
-            .catch(res=>{
-                alert(res.response.data.message)
-                console.log(res)
-            });
-    
-    }
 
 return (
     <>
@@ -41,6 +25,24 @@ return (
     </>
 
     )
+
+    function SendLoginData(e){
+        e.preventDefault();
+    
+        axios.post("http://localhost:8080/member/login", 
+            {   userId,
+                password
+            },
+            {
+                withCredentials : true
+            }).then(res=>{
+                window.location.href="/"
+            })
+            .catch(res=>{
+                alert(res.response.data.message)
+            });
+    
+    }
 }
 
 
